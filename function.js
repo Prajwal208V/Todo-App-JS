@@ -46,9 +46,12 @@ function closer2() {
   inp_iteam.value = "";
 }
 
+function line_through_fun(ele){
+  console.log(ele);
+  // ele.style.textDecoration = "line-through";
+}
 
 
-var count2=0;
 function plus_icon2(id) {
   temp_id = id;
   add_ele2();
@@ -64,13 +67,13 @@ function plus_icon2(id) {
           p_tag.classList.add('tasks');
           p_tag.textContent = inp_iteam.value;
           temp_task[k].appendChild(p_tag);
-          var tasks_1=document.getElementsByClassName('tasks');
-          tasks_1[count2].addEventListener('click', function (count2){
-             count2.target.style.textDecoration="line-through";
+          // tasks_1=document.querySelector('.tasks');
+          p_tag.addEventListener('click', function (temp_obj){
+            temp_obj.target.style.textDecoration="line-through";
           });
-          count2++
         }
       }
+     
       closer2();
     }
   });
@@ -83,6 +86,10 @@ function trash_icon2(id) {
       con_box.removeChild(i);
       count--;
     }
+  }
+  if(con_box.children.length==0){
+    document.querySelector('.no_item').classList.remove('hidden');
+    document.querySelector('.no_found_img').classList.remove('hidden');
   }
 }
 
@@ -141,8 +148,11 @@ document.querySelector(".add_button").addEventListener("click", () => {
     trash_icon01[count].addEventListener('click', function (count) {
       trash_icon2(count.target.classList[3]);
     });
-
     count++;
+    if(con_box.children.length>=0){
+      document.querySelector('.no_item').classList.add('hidden');
+      document.querySelector('.no_found_img').classList.add('hidden');
+    }
     closer(); // 26.calling hidden fun
   }
 });

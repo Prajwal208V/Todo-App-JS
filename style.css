@@ -210,3 +210,14 @@ body{
 .task_box>p {
   cursor: pointer;
 }
+
+.no_found_img{
+  margin:2rem 0 0 40rem;
+}
+.no_item{
+  color:tomato;
+  opacity:0.8;
+  margin:2rem 0 0 15rem;
+  font-family: 'Roboto', sans-serif;
+  font-size:2.5rem;
+}
