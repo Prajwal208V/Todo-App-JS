@@ -12,6 +12,9 @@ var inp_iteam = document.querySelector(".input_iteam");
 var iteam_btn = document.querySelector(".add_button2");
 var temp_id;
 
+
+
+
 function Obj_Create(unique_id, title) {
   // creating objects
   this.unique_id = unique_id;
@@ -44,6 +47,8 @@ function closer2() {
 }
 
 
+
+var count2=0;
 function plus_icon2(id) {
   temp_id = id;
   add_ele2();
@@ -56,8 +61,14 @@ function plus_icon2(id) {
       for (let k = 0; k < temp_task.length; k++) {
         if (temp_task[k].classList[1] == temp_id) {
           var p_tag = document.createElement('p');
+          p_tag.classList.add('tasks');
           p_tag.textContent = inp_iteam.value;
           temp_task[k].appendChild(p_tag);
+          var tasks_1=document.getElementsByClassName('tasks');
+          tasks_1[count2].addEventListener('click', function (count2){
+             count2.target.style.textDecoration="line-through";
+          });
+          count2++
         }
       }
       closer2();

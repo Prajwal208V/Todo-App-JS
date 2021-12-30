@@ -107,6 +107,7 @@ body{
     border:0;
     border-radius:1.2rem;
     font-size:1.4rem;
+    cursor: pointer;
 }
 .add_button2{
   width:6.5rem;
@@ -116,6 +117,7 @@ body{
   border:0;
   border-radius:1.2rem;
   font-size:1.4rem;
+  cursor: pointer;
 }
 
 .close-modal {
@@ -205,6 +207,6 @@ body{
   justify-content:space-between;
 }
 
-.task_box>p:active {
-  text-decoration: line-through;
+.task_box>p {
+  cursor: pointer;
 }
