@@ -221,3 +221,52 @@ body{
   font-family: 'Roboto', sans-serif;
   font-size:2.5rem;
 }
+.title{
+  cursor: pointer;
+}
+
+.hidden_page_element{
+  margin:8rem 0 0 33rem;
+}
+
+#open-modal3{
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  position: relative;
+  top:5rem;
+  font-size:2.5rem;
+  margin:auto;
+}
+.back_btn{
+  color:black;
+  cursor:pointer;
+}
+.new_page_plusBtn{
+  color:#1976d2;
+  cursor:pointer;
+}
+.new_page_title{
+  color:tomato;
+  font-size:4rem;
+}
+
+.new_page_title_box{
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+}
+
+/* #left_hr{
+  transform:rotate(90deg);
+  width:90;
+  border:0.6px solid tomato;
+  height:0.1px;
+}
+#right_hr{
+  transform:rotate(90deg);
+  width:90%;
+  border:0.6px solid tomato;
+  float:right;
+  height:0.1px;
+} */

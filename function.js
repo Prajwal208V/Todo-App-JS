@@ -1,3 +1,24 @@
+//SUB for new window elements
+var module_13= document.getElementById('open-modal3');
+var back_btn= document.querySelector('.back_btn');
+var new_page_title= document.querySelector('.new_page_title');
+var new_page_plusBtn= document.querySelector('.new_page_plusBtn');
+
+module_13.style.display='none';
+
+new_page_plusBtn.addEventListener('click',add_ele);
+
+
+back_btn.addEventListener('click',(argu)=>{
+  module_13.style.display="none";
+  document.querySelector('.continer').classList.remove('hidden');
+  var temp=document.getElementsByClassName('index_box');
+  for(let i of temp){
+    i.classList.remove('hidden');
+  }
+  document.querySelector('.hidden_page_element').classList.remove('hidden_page_element');
+});
+
 var modal = document.querySelector(".hidden");
 var overlay = document.querySelector(".overlay");
 var inp_title = document.querySelector(".input_title");
@@ -11,9 +32,6 @@ var modal2 = document.querySelector(".hidden2");
 var inp_iteam = document.querySelector(".input_iteam");
 var iteam_btn = document.querySelector(".add_button2");
 var temp_id;
-
-
-
 
 function Obj_Create(unique_id, title) {
   // creating objects
@@ -45,12 +63,6 @@ function closer2() {
   overlay.classList.add("hidden");
   inp_iteam.value = "";
 }
-
-function line_through_fun(ele){
-  console.log(ele);
-  // ele.style.textDecoration = "line-through";
-}
-
 
 function plus_icon2(id) {
   temp_id = id;
@@ -93,6 +105,23 @@ function trash_icon2(id) {
   }
 }
 
+function new_page_fun(para){
+  document.querySelector('.continer').classList.add('hidden');
+  var temp=document.getElementsByClassName('index_box');
+  for(let i of temp){
+    if(i.classList[1]!=para.target.classList[1]){
+      i.classList.add('hidden');
+    }
+    else{
+      i.classList.add('hidden_page_element');
+      module_13.style.display='flex';
+      new_page_title.textContent= `${i.childNodes[0].textContent}`;
+      console.log();
+    }
+  }
+  // console.log(para.target.classList[1]);
+
+}
 
 
 
@@ -113,8 +142,11 @@ document.querySelector(".add_button").addEventListener("click", () => {
     box_div.classList.add("index_box", unique_id); //6. adding classname as [index_box,unique_id]
     //SUB
     var p_tag = document.createElement("p"); // 7.create title of the box
-    p_tag.classList.add("title"); //8. adding class name as title
+    p_tag.classList.add("title", unique_id); //8. adding class name as title
     p_tag.textContent = inp_title.value; //9. passing title to textContent
+    p_tag.addEventListener('click', function (obj_new_page){
+      new_page_fun(obj_new_page);
+    });
     box_div.append(p_tag); //10. append child element title 'p' into index_box
     //SUB
     box_div.append(document.createElement("hr")); // 11.creating 'hr' tag and append this into index_box
